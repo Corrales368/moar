@@ -1,0 +1,78 @@
+{% extends "baseRegistration.html" %}
+{% load static %}
+
+<!-- Título página -->
+{% block titulo%} Governança de Vendas {% endblock titulo%}
+
+<!-- Fondo -->
+{% block b%} {% endblock b%}
+
+{% block contenido%} 
+
+    <div class="container d-flex justify-content-center align-items-center vh-100-sm">
+
+        <article class="row" id="boxlogin">
+            <!-- COLUMNA IZQUIERDA -->
+            <seccion class="col-12 col-md-5 col-lg-6 d-flex justify-content-center align-items-end h-100-md" id="seccionBienvenido">
+                <header class="w-100">
+                    <p class="text-center tltBold" id="tltLoginLarge"> Bem-vindo</p>
+                    <p class="text-center text-info" id="tltLoginSmall"> Governança de vendas</p>
+                </header>
+            </seccion>
+            <!-- FIN COLUMNA IZQUIERDA -->
+
+            <!-- COLUMNA DERECHA -->
+            <seccion class="col-12 col-md-7 col-lg-6 p-4 pb-0 bg-white text-center" id="seccionLogin">
+
+                <!-- LOGO 
+                <img src="/static/images/logoAlgar.svg" alt="" class="logoimage"> 
+                -->
+                
+                <!-- FORMULARIO -->
+                <form action="/" method="post" class="pt-5" id="formulario">
+                    {% csrf_token %}
+                        
+                    <div class="form-group m-2" id="grupo__correo">
+                        <label for="correo" class="d-none">Correo Electrónico</label>
+                        <input type="text" class="form-control tltLight" name="username" id="user" placeholder="correo@algartech.com">
+                    </div>
+
+                    <div class="form-group m-2" id="grupo__password">
+                        <label for="password" class="d-none">Contraseña</label>
+                        <input type="password" class="form-control tltLight" name="password" id="pass" placeholder="senha">
+                    </div>
+
+                    <div>
+                        <!-- LINK RECUPERAR CONTRASEÑA 
+                        <p class="forgotPassword pe-2"><a href="{% url 'appgobernanza:PasswordResetForm' %}" id="btnEsqueciSenha"> Esqueci senha </a></p>
+                            ALERTA 
+                        {% if messages %}
+                            <div class="alert alert-primary alert-dismissible fade show p-1 m-0 pb-2 d-none" role="alert">
+                                {% for msg in messages %}
+                                    {% comment %} <b id="respuestaLogin">{{msg}}</b> {% endcomment %}
+                                    <input type="text" id="rsp" value="{{msg}}">
+                                {% endfor %}
+                                <button type="button" class="btn btn-primary p-0 mt-2 me-1" data-bs-dismiss="alert" aria-label="Close" >x</button>
+                            </div>
+                        {% endif %}-->
+                        <!-- FIN ALERTA -->
+                    </div>
+                    <!-- BOTÓN INICIO SESIÓN -->
+                    <button type="submit" class="btn btn-primary mb-2" id="btnLogin">Login</button>
+                </form>
+                <!-- FIN FORMULARIO --> 
+        
+            </seccion>
+            <!-- FIN COLUMNA DERECHA -->
+
+        </article>
+    </div>
+
+{% endblock contenido%}
+
+{% block functions %} 
+
+    <!-- LINKS JAVASCRIPT -->
+   
+    
+{% endblock functions %}  
