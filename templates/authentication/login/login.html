@@ -1,3 +1,4 @@
+{% extends "base/baseLogin.html" %}
 {% load static %}
 
 <!-- Título página -->
@@ -42,19 +43,7 @@
                     </div>
 
                     <div>
-                        <!-- LINK RECUPERAR CONTRASEÑA 
-                        <p class="forgotPassword pe-2"><a href="{% url 'appgobernanza:PasswordResetForm' %}" id="btnEsqueciSenha"> Esqueci senha </a></p>
-                            ALERTA 
-                        {% if messages %}
-                            <div class="alert alert-primary alert-dismissible fade show p-1 m-0 pb-2 d-none" role="alert">
-                                {% for msg in messages %}
-                                    {% comment %} <b id="respuestaLogin">{{msg}}</b> {% endcomment %}
-                                    <input type="text" id="rsp" value="{{msg}}">
-                                {% endfor %}
-                                <button type="button" class="btn btn-primary p-0 mt-2 me-1" data-bs-dismiss="alert" aria-label="Close" >x</button>
-                            </div>
-                        {% endif %}-->
-                        <!-- FIN ALERTA -->
+                 
                     </div>
                     <!-- BOTÓN INICIO SESIÓN -->
                     <button type="submit" class="btn btn-primary mb-2" id="btnLogin">Login</button>
