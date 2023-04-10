@@ -46,7 +46,9 @@ DJANGO_APPS = [
 LOCAL_APPS = [
     'apps.user',
     'apps.authentication',
-    'apps.shared'
+    'apps.shared',
+    'apps.provider',
+    'apps.client',
 ]
 
 THIRD_APPS = [
