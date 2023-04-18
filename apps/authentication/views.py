@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView, LogoutView
 
-def hello(req):
-    return render(req, 'base/base.html')
+
+class MyLoginView(LoginView):
+    template_name = "authentication/login/login.html"
+
+
+class MyLogoutView(LogoutView):
+    template_name = ""
