@@ -1,0 +1,27 @@
+body{
+    height: 100vh;
+  }
+  .bgFondoInicio {
+      background-image: url("../images/FondoInicio.png");
+      background-size:cover;
+      background-repeat: no-repeat;
+  }
+  .container {
+      width: 100%;
+      display: flex; /* propiedad flexbox */
+      justify-content: start; /* centra el contenido horizontalmmente */
+      align-items: center; /* centra el contenido verticalmente */
+      margin-left: 4rem;
+    }
+    
+    .content{
+      height: auto;
+      width: 65%;
+      /*background-color: rgb(220, 215, 212);*/
+      padding-top: 8%;
+    }
+  
+    .InputTransparente {
+      background-color:rgba(155, 207, 242, 0.233) !important;
+      border: 0px !important; 
+  }
