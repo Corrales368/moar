@@ -1,0 +1,127 @@
+{% extends "base/baseLogin.html" %}
+{% load static %}
+
+<!-- Título página -->
+{% block titulo%} Moar Travel {% endblock titulo%}
+
+<!-- Fondo -->
+{% block b%} "bgFondoInicio" {% endblock b%}
+
+{% block contenido%} 
+
+
+    <nav id="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light ps-5 ms-5">
+            <a class="navbar-brand me-5" href="{% url 'authentication:register' %}">MoarTravel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link ms-5 active" href="#">Inicio</a>
+                <a class="nav-item nav-link ms-5" href="#">Lugares</a>
+                <a class="nav-item nav-link ms-5" href="#">Reservas</a>
+                <a class="nav-item nav-link ms-5 disabled" href="#">Iniciar Sesion</a>
+              </div>
+            </div>
+          </nav>
+    </nav>
+    <div class="container">
+
+        <article class="content" >
+            <seccion>
+                <!-- LOGO 
+                <img src="/static/images/logoAlgar.svg" alt="" class="logoimage"> 
+                -->               
+                <!-- FORMULARIO -->
+                <div class="ms-2">
+                    <h5 class="fw-light text-secundary">Empieza ahora gratis</h5>
+                    
+                    <h1 class="my-4">Crear una nueva cuenta</h1>     
+                    <h4 class="fw-light">¿Ya eres miembro? <span class="text-primary" ><a href="{% url 'authentication:login' %}">Iniciar Sesión</a></span></h4>    
+                </div>
+  
+                <form class="row" action="/" method="post"  id="formulario">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group m-2" id="grupo__correo">                           
+                                <input type="text" class="form-control InputTransparente"  name="username" id="user" placeholder="Jhon Doe">
+                            </div>
+                            <div class="form-group m-2" id="grupo__password">                           
+                            <input type="password" class="form-control InputTransparente" name="password" id="pass" placeholder="Contraseña">
+                            </div> 
+                            <div class="form-group m-2" id="grupo__password">
+                                <select class="form-select InputTransparente" aria-label="Default select example">
+                                    <option selected>Tipo de documento</option>
+                                    <option value="1">Cedula</option>
+                                    <option value="2">Cedula de extranjeria</option>
+                                    <option value="3">NIT</option>
+                                </select>
+                            </div>
+                            <div class="form-group m-2" >
+                                <input type="email" class="form-control InputTransparente" name="emailUser" placeholder="Email">
+                            </div>
+                            <div class="form-group m-2" >
+                                <select class="form-select InputTransparente" aria-label="Default select example">
+                                    <option selected>Seleccionar País</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="form-group m-2" >
+                                <label class="ms-1">Fecha de nacimiento</label>
+                                <input type="date" class="form-control InputTransparente" name="fechaNacimiento" id="fechaNacimiento" placeholder="senha">                           
+                            </div>  
+                        </div>
+                
+                        <div class="col">
+                            <div class="col form-group m-2" id="grupo__correo">                            
+                                <input type="text" class="form-control InputTransparente" name="lastname" id="user" placeholder="Doe">
+                            </div> 
+
+                            <div class="form-group m-2" id="grupo__password">
+                                <input type="password" class="form-control InputTransparente" name="Confirmpassword" id="Confirmpass" placeholder="Confirmar Contraseña">
+                            </div>
+                            <div class="form-group m-2" id="grupo__password">
+                                <input type="number" class="form-control InputTransparente" name="numeroDocumento" id="numeroDocumento" placeholder="Numero de documento">
+                            </div>
+                            <div class="form-group m-2" >
+                                <input type="email" class="form-control InputTransparente" name="emailUser" placeholder="Confirmar Email">
+                            </div>
+                            <div class="form-group m-2" >
+                                <select class="form-select InputTransparente" aria-label="Default select example">
+                                    <option selected>Seleccionar Ciudad</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="form-group m-2" >
+                                <label class="ms-1">Telefono de contacto</label>
+                                <input type="number" class="form-control InputTransparente" name="NumeroTelefono" id="NumeroTelefono" placeholder="125879631">                           
+                            </div> 
+                        </div>
+                    </div>  
+                    <!-- BOTÓN INICIO SESIÓN -->
+                    <div class="row mt-2 mb-4 px-5"  >
+                        <div type="buttom" class="btn btn-primary">Registrarse</div>
+                    </div>
+                </form>
+                <!-- FIN FORMULARIO --> 
+        
+            </seccion>
+            <!-- FIN COLUMNA DERECHA -->
+
+        </article>
+    </div>
+
+{% endblock contenido%}
+
+{% block functions %} 
+
+    <!-- LINKS JAVASCRIPT -->
+   
+    
+{% endblock functions %}  
