@@ -1,4 +1,4 @@
-{% extends "base/baseLogin.html" %}
+{% extends "base/HeaderBase.html" %}
 {% load static %}
 
 <!-- Título página -->
@@ -9,24 +9,7 @@
 
 {% block contenido%} 
 
-
-    <nav id="nav-container">
-        <nav class="navbar navbar-expand-lg navbar-light ps-5 ms-5">
-            <a class="navbar-brand" href="#">MoarTravel</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link ms-5 active" href="#">Inicio</a>
-                <a class="nav-item nav-link ms-5" href="#">Lugares</a>
-                <a class="nav-item nav-link ms-5" href="#">Reservas</a>
-                <a class="nav-item nav-link ms-5 disabled" href="#">Iniciar Sesion</a>
-              </div>
-            </div>
-          </nav>
-    </nav>
-    <div class="container">
+    <div class="container-flex">
 
         <article class="content" >
             <seccion>

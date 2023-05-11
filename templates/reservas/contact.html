@@ -1,0 +1,90 @@
+{% extends "base/HeaderBase.html" %}
+{% load static %}
+
+<!-- Título página -->
+{% block titulo%} Moar Travel {% endblock titulo%}
+
+
+
+{% block contenido%} 
+    <!-- ***** Listing Destinations Area Start ***** -->
+    <div class="dorne-contact-area d-md-flex ms-5 ps-5" id="contact" >
+        <!-- Contact Form Area -->
+        <div class="contact-form-area equal-height">
+            <div class="contact-text">
+                <h4>HOLA, PONTE EN CONTACTO CON NOSOTROS</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat. Sed mollis orci non cursus vestibulum. Pellentesque vitae est a augue laoreet venenatis sed eu felis. Sed cursus magna nec turpis ullamcorper, eget rutrum felis egestas. Nunc odio ex, fermentum efficitur nunc vitae, efficitur hendrerit diam. Lorem ipsum dolor sit amet, consectetur.</p>
+                <div class="contact-info d-lg-flex">
+                    <div class="single-contact-info">
+                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Medellin, Antioquia</h6>
+                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> No. 25-33</h6>
+                    </div>
+                    <div class="single-contact-info">
+                        <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> moarravel@gmail.com</h6>
+                        <h6><i class="fa fa-phone" aria-hidden="true"></i> +34 567 22478 49567</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <div class="contact-form-title">
+                    <h6>Contacto Comercial</h6>
+                </div>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="Inquietud" class="form-control" placeholder="Inquietud">
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="Tu mensaje"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn dorne-btn">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Map Area -->
+        <div id="map-google" class="">
+            <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=588&amp;height=757&amp;hl=en&amp;q=medellin&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://capcuttemplate.org/">Capcuttemplate.org</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:757px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:757px;}.gmap_iframe {height:757px!important;}</style></div>
+        </div>
+    </div>
+        <!-- ***** Contact Area End ***** -->
+
+    <!-- ****** Footer Area Start ****** -->
+    <footer class="dorne-footer-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-md-flex align-items-center justify-content-between">
+                    <div class="footer-text">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                    <div class="footer-social-btns">
+                        <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ****** Footer Area End ****** -->
+
+    {% endblock contenido%}
+    {% block functions %} 
+    
+    <!-- LINKS JAVASCRIPT -->
+        
+    {% endblock functions %}  
