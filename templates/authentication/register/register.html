@@ -23,15 +23,15 @@
                     <h4 class="fw-light">¿Ya eres miembro? <span class="text-primary" ><a href="{% url 'authentication:login' %}">Iniciar Sesión</a></span></h4>    
                 </div>
   
-                <form class="row" action="/" method="post"  id="formulario">
-                    {% csrf_token %}
+                <form method="post"  id="formulario">
+                    {% csrf_token %} 
                     <div class="row">
                         <div class="col">
                             <div class="form-group m-2" id="grupo__correo">                           
-                                <input type="text" class="form-control InputTransparente"  name="username" id="user" placeholder="Jhon Doe">
+                                <input type="text" class="form-control InputTransparente"  name="username" id="{{ form.username.id_for_label }}" placeholder="Jhon Doe">
                             </div>
                             <div class="form-group m-2" id="grupo__password">                           
-                            <input type="password" class="form-control InputTransparente" name="password" id="pass" placeholder="Contraseña">
+                            <input type="password" class="form-control InputTransparente" name="password" id="{{ form.password1.id_for_label }}" placeholder="Contraseña">
                             </div> 
                             <div class="form-group m-2" id="grupo__password">
                                 <select class="form-select InputTransparente" aria-label="Default select example">
@@ -88,7 +88,9 @@
                     </div>  
                     <!-- BOTÓN INICIO SESIÓN -->
                     <div class="row mt-2 mb-4 px-5"  >
-                        <div type="buttom" class="btn btn-primary">Registrarse</div>
+                        {{ form.non_field_errors }}
+                        {{ form.errors }}
+                        <input type="submit" value="Registrarse" class="btn btn-primary">
                     </div>
                 </form>
                 <!-- FIN FORMULARIO --> 

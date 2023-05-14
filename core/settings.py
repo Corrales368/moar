@@ -88,22 +88,31 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
-
+AUTH_USER_MODEL = 'authentication.User'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ['POSTGRES_DB'],
+#         'USER': os.environ['POSTGRES_USER'],
+#         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+#         'HOST': os.environ['POSTGRES_HOST'],
+#         'PORT': os.environ['POSTGRES_PORT'],
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_DB'],
-        'USER': os.environ['POSTGRES_USER'],
-        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-        'HOST': os.environ['POSTGRES_HOST'],
-        'PORT': os.environ['POSTGRES_PORT'],
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bd_moar',
+        'USER': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -24,6 +24,7 @@ urlpatterns = [
     path('login/',views.loginUser),
     path('', include('apps.authentication.urls')),
     path('', include('apps.reservas.urls')),
+    path('', include('apps.user.urls')),
 ]
 
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

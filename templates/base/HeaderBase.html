@@ -30,9 +30,6 @@
     <title> {% block titulo%} {% endblock titulo%} </title>
 
 </head>
-
-
-
 <body class={% block b%} {% endblock b%}>
 
     <!-- Preloader -->
@@ -64,7 +61,7 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="{% url 'authentication:register'%}"><img
+                        <a class="navbar-brand" href="{% url 'user:register'%}"><img
                                 src="{% static 'images/LogoMoar.svg' %}" class="w-50"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav"
                             aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -77,17 +74,16 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'authentication:register'%}">Reservas <span
+                                    <a class="nav-link" href="{% url 'user:register'%}">Reservas <span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'reservas:contact'%}" >Contact</a>
                                 </li>
                             </ul>
-
                             <!-- Signin btn -->
                             <div class="dorne-signin-btn">
-                                <a href="{% url 'authentication:register'%}">Sign in or Register</a>
+                                <a href="{% url 'user:register'%}">Sign in or Register</a>
                             </div>
                             <!-- Add listings btn -->
                             <div class="dorne-add-listings-btn">
