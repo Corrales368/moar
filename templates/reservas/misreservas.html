@@ -1,0 +1,67 @@
+{% extends "base/HeaderBase.html" %}
+{% load static %}
+
+<!-- Título página -->
+{% block titulo%} Moar Travel {% endblock titulo%}
+
+
+
+{% block contenido%} 
+    <!-- ***** Listing Destinations Area Start ***** -->
+    <section class="dorne-listing-destinations-area section-padding-100-50">
+        <div class="container">
+            <div class="row">
+               
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <span></span>
+                        <h4>Mis Reservaciones</h4>
+                        <p>--</p>
+                    </div>
+                </div>
+                <!-- Single Features Area -->
+               
+                    <div class="col-12">
+                    {% for reservacion in reservaciones %}
+                        <table class="table table-success table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Vista previa hotel</th>
+                                <th scope="col">Fecha Inicio</th>
+                                <th scope="col">Fecha Fin</th>
+                                <th scope="col">Cantidad de adultos</th>
+                                <th scope="col">Nombre de hotel</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td scope="row">{{ reservacion.id }}</td>
+                                <td class="w-auto">
+                                    <img src="{{ reservacion.hotel.imagen.url }}" class="w-25" alt="Imagen Hotel">
+                                </td>
+                                <td>{{ reservacion.fecha_inicio }}</td>
+                                <td>{{ reservacion.fecha_fin }}</td>
+                                <td>{{ reservacion.adults }}</td>
+                                <td>{{ reservacion.hotel.nombre }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                {% endfor %}
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!-- ***** Listing Destinations Area End ***** -->
+
+   
+    {% endblock contenido%}
+
+    {% block functions %} 
+    
+        <!-- LINKS JAVASCRIPT -->
+       
+        
+    {% endblock functions %}  

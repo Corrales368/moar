@@ -27,3 +27,8 @@ def reservasPage(request):
     else:
         form = ReservasForm()
     return render(request, 'reservas/reservar.html', {'form': form, 'messages': messages.get_messages(request)})
+
+@login_required(login_url='authentication:login')
+def misReservasPage(request):
+    reservaciones = Reservacion.objects.filter(huesped=request.session['id'])
+    return render(request, 'reservas/misreservas.html', {'reservaciones': reservaciones})
