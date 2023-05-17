@@ -1,6 +1,6 @@
 {% extends "base/HeaderBase.html" %}
 {% load static %}
-
+{% load widget_tweaks %}
 <!-- Título página -->
 {% block titulo%} Moar Travel {% endblock titulo%}
 
@@ -29,7 +29,7 @@
                         <form>
                             <div class="form-group">
                                 <span class="form-label">Tu destino</span>
-                                <input class="form-control" type="text" placeholder="Enter a destination or hotel name">
+                                {% render_field form.habitacion class="form-select" type="text" id="habitacion" name="habitacion"%}
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">

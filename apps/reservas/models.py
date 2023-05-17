@@ -8,7 +8,7 @@ class Hotel(models.Model):
     direccion = models.CharField(max_length=200)
     ciudad = models.CharField(max_length=100)
     imagen = models.ImageField(upload_to='img/bg-img/', default='img/bg-img/feature-1.jpg')
-    
+    descripcion = models.CharField(max_length=200, default="party")
     def __str__(self):
         return self.nombre
 
@@ -27,7 +27,7 @@ class Habitacion(models.Model):
     disponible = models.BooleanField(default=True)
     
     def __str__(self):
-        return f'Habitación {self.numero} - {self.hotel.nombre}'
+        return f'Habitación {self.numero_habitacion} - {self.hotel.nombre}'
 
 class Reservacion(models.Model):
     habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE)
