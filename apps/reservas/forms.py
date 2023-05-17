@@ -7,13 +7,12 @@ from django.forms import ModelForm
 class ReservasForm(ModelForm):
     class Meta:
         model = Reservacion
-        fields =  ('habitacion', 'fecha_inicio', 'fecha_fin','huesped','rooms', 'adults')
+        fields =  ('hotel','habitacion', 'fecha_inicio', 'fecha_fin', 'adults')
     
-    habitacion = forms.ModelChoiceField(queryset = Habitacion.objects.all(), empty_label="Selecione...", )
+    hotel = forms.ModelChoiceField(queryset = Hotel.objects.all(), empty_label="Selecione Hotel")
+    habitacion = forms.ModelChoiceField(queryset = Habitacion.objects.all(), empty_label="Selecione Habitacion", )
     fecha_inicio = forms.DateField(label='',)
     fecha_fin= forms.DateField(label='',)
-    huesped = forms.IntegerField(label='')
-    rooms = forms.IntegerField(label='')
     adults = forms.IntegerField(label='')
 
    

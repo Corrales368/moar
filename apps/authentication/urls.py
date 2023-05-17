@@ -5,4 +5,5 @@ app_name = "authentication"
 
 urlpatterns = [
     path('login/', views.login_view, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
 ]

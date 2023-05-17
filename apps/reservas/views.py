@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import *
 from .forms import ReservasForm
 from django.contrib import messages
+#Decoradores
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def lugaresPage(request):
@@ -12,12 +14,15 @@ def lugaresPage(request):
 def contactPage(request):  
     return render(request, 'reservas/contact.html')
 
+@login_required(login_url='authentication:login')
 def reservasPage(request):
     if request.method == 'POST':
         form = ReservasForm(request.POST)
         print(request.POST)
         if form.is_valid():
-            form.save()
+            reserva = form.save(commit=False) 
+            reserva.huesped = User.objects.get(id=request.session['id'])
+            reserva.save() 
             messages.success(request, '¡Reserva exitosa!')
     else:
         form = ReservasForm()

@@ -30,11 +30,11 @@ class Habitacion(models.Model):
         return f'Habitación {self.numero_habitacion} - {self.hotel.nombre}'
 
 class Reservacion(models.Model):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE,blank=True, null=True )
     habitacion = models.ForeignKey(Habitacion, on_delete=models.CASCADE)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     huesped = models.ForeignKey(User, on_delete=models.CASCADE)
-    rooms = models.IntegerField(default=0)
     adults = models.IntegerField(default=0)
     
     def __str__(self):

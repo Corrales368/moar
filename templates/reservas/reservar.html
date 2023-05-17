@@ -3,9 +3,27 @@
 {% load widget_tweaks %}
 <!-- Título página -->
 {% block titulo%} Moar Travel {% endblock titulo%}
-
-
-
+{% block alerta%}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger alert-dismissible fade show alert-full-width" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% elif message.tags == 'success' %}
+            <div class="alert alert-success alert-dismissible fade show alert-full-width" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock alerta%}
 {% block contenido%}
 <!-- ***** Listing Destinations Area Start ***** -->
 
@@ -26,51 +44,50 @@
                 </div>
                 <div class="col-md-4 col-md-pull-7">
                     <div class="booking-form">
-                        <form>
+                        <form method="POST">
+                            {% csrf_token %} 
                             <div class="form-group">
                                 <span class="form-label">Tu destino</span>
-                                {% render_field form.habitacion class="form-select" type="text" id="habitacion" name="habitacion"%}
+                                {% render_field form.hotel class="form-select" type="text" id="hotel" name="hotel"%}
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
-                                        <input class="form-control" type="date" required>
+                                        {% render_field form.fecha_inicio class="form-control" type="date" id="fecha_inicio" name="fecha_inicio"%}
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <span class="form-label">Check out</span>
-                                        <input class="form-control" type="date" required>
+                                        {% render_field form.fecha_fin class="form-control" type="date" id="fecha_fin" name="fecha_fin"%}
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-8">
                                     <div class="form-group">
                                         <span class="form-label">Habitaciones</span>
-                                        <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
+                                        {% render_field form.habitacion class="form-select" type="text" id="habitacion" name="habitacion"%}
+                            
                                         <span class="select-arrow"></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <span class="form-label">Adultos</span>
-                                        <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
+                                        {% render_field form.adults class="form-control" type="number"  id="adults" name="adults" min="0" step="any"%}
                                         <span class="select-arrow"></span>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="form-btn">
-                                <button class="submit-btn">Consultar Disponibilidad</button>
+                                <button type="submit" class="submit-btn">Consultar Disponibilidad</button>
+                            </div>
+                             <!-- Form errors-->
+                            <div class="row"  >                          
+                                <a class="text-danger text-center"> {{ form.errors }} </a>
                             </div>
                         </form>
                     </div>
