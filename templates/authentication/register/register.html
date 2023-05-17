@@ -1,12 +1,33 @@
 {% extends "base/HeaderBase.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 <!-- Título página -->
 {% block titulo%} Moar Travel {% endblock titulo%}
 
 <!-- Fondo -->
 {% block b%} "bgFondoInicio" {% endblock b%}
-
+{% block alerta%}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger alert-dismissible fade show alert-full-width" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% elif message.tags == 'success' %}
+            <div class="alert alert-success alert-dismissible fade show alert-full-width" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock alerta%}
 {% block contenido%} 
     <div class="container-flex">
 
@@ -28,68 +49,50 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group m-2" id="grupo__correo">                           
-                                <input type="text" class="form-control InputTransparente"  name="username" id="{{ form.username.id_for_label }}" placeholder="Jhon Doe">
+                                {% render_field form.username class="form-control InputTransparente" id="username" name="username" placeholder="username" %}
                             </div>
+                            
                             <div class="form-group m-2" id="grupo__password">                           
-                            <input type="password" class="form-control InputTransparente" name="password" id="{{ form.password1.id_for_label }}" placeholder="Contraseña">
+                                {% render_field form.password1  type="password" class="form-control InputTransparente" id="password" name="password" placeholder="Contraseña" %}
                             </div> 
                             <div class="form-group m-2" id="grupo__password">
-                                <select class="form-select InputTransparente" aria-label="Default select example">
-                                    <option selected>Tipo de documento</option>
-                                    <option value="1">Cedula</option>
-                                    <option value="2">Cedula de extranjeria</option>
-                                    <option value="3">NIT</option>
-                                </select>
+                                {% render_field form.tipo_cedula class="form-select InputTransparente" id="tipo_cedula" name="tipo_cedula" placeholder="Tipo documento" empty_label="Selecione..." %}
                             </div>
+
                             <div class="form-group m-2" >
-                                <input type="email" class="form-control InputTransparente" name="emailUser" placeholder="Email">
-                            </div>
-                            <div class="form-group m-2" >
-                                <select class="form-select InputTransparente" aria-label="Default select example">
-                                    <option selected>Seleccionar País</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                {% render_field form.email type="email" class="form-control InputTransparente" id="email" name="email" placeholder="Email" %}
+                              
                             </div>
                             <div class="form-group m-2" >
                                 <label class="ms-1">Fecha de nacimiento</label>
-                                <input type="date" class="form-control InputTransparente" name="fechaNacimiento" id="fechaNacimiento" placeholder="senha">                           
+                                {% render_field form.fecha_nacimiento type="date" class="form-control InputTransparente" id="fechaNacimiento" name="fechaNacimiento" %}                           
                             </div>  
                         </div>
                 
                         <div class="col">
-                            <div class="col form-group m-2" id="grupo__correo">                            
-                                <input type="text" class="form-control InputTransparente" name="lastname" id="user" placeholder="Doe">
+                            <div class="form-group m-2" id="grupo__password">          
+                                {% render_field form.first_name class="form-control InputTransparente " id="first_name" name="first_name" placeholder="primer nombre" %}    
                             </div> 
-
-                            <div class="form-group m-2" id="grupo__password">
-                                <input type="password" class="form-control InputTransparente" name="Confirmpassword" id="Confirmpass" placeholder="Confirmar Contraseña">
-                            </div>
-                            <div class="form-group m-2" id="grupo__password">
-                                <input type="number" class="form-control InputTransparente" name="numeroDocumento" id="numeroDocumento" placeholder="Numero de documento">
-                            </div>
                             <div class="form-group m-2" >
-                                <input type="email" class="form-control InputTransparente" name="emailUser" placeholder="Confirmar Email">
+                                {% render_field form.last_name class="form-control InputTransparente" id="last_name" name="last_name" placeholder="Segundo nombre" %}
                             </div>
-                            <div class="form-group m-2" >
-                                <select class="form-select InputTransparente" aria-label="Default select example">
-                                    <option selected>Seleccionar Ciudad</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                            <div class="form-group m-2" id="grupo__password">
+                                {% render_field form.password2 class="form-control InputTransparente" id="Confirmpass" name="Confirmpass" placeholder="Confirmar Contraseña" %}
                             </div>
+                            <div class="form-group m-2" id="grupo__password">
+                                {% render_field form.numero_cedula type="number" class="form-control InputTransparente" id="numeroDocumento" name="numeroDocumento" placeholder="Numero de documento" %}
+                              </div>
+                   
                             <div class="form-group m-2" >
                                 <label class="ms-1">Telefono de contacto</label>
-                                <input type="number" class="form-control InputTransparente" name="NumeroTelefono" id="NumeroTelefono" placeholder="125879631">                           
-                            </div> 
+                                {% render_field form.telefono type="number" class="form-control InputTransparente" id="telefono" name="telefono" placeholder="Telefono" %}
+                             </div> 
+
                         </div>
                     </div>  
                     <!-- BOTÓN INICIO SESIÓN -->
-                    <div class="row mt-2 mb-4 px-5"  >
-                        {{ form.non_field_errors }}
-                        {{ form.errors }}
+                    <div class="row"  >                          
+                        <a class="text-danger text-center"> {{ form.errors }} </a>
                         <input type="submit" value="Registrarse" class="btn btn-primary">
                     </div>
                 </form>

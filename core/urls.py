@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',views.loginUser),
+    path('login/',views.login_view),
     path('', include('apps.authentication.urls')),
     path('', include('apps.reservas.urls')),
     path('', include('apps.user.urls')),

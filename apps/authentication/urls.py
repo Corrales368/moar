@@ -3,7 +3,6 @@ from . import views
 
 app_name = "authentication"
 
-urlpatterns = [    
-  
-    path('login/', views.loginUser, name='login'),
+urlpatterns = [
+    path('login/', views.login_view, name='login'),
 ]

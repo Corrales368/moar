@@ -6,3 +6,6 @@ def lugaresPage(request):
 
 def contactPage(request):  
     return render(request, 'reservas/contact.html')
+
+def reservasPage(request):  
+    return render(request, 'reservas/reservar.html')

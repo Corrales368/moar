@@ -10,6 +10,7 @@ class User(AbstractUser):
     direccion = models.CharField(max_length=255, blank=True)
     telefono = models.CharField(max_length=20, blank=True)
     CEDULA_CHOICES = (
+        ('', 'Tipo de cedula'),
         ('1', 'Cedula de Ciudadania'),
         ('2', 'Tarjeta de Identidad'),
         ('3', 'Cedula de Extranjeria'),
@@ -17,3 +18,4 @@ class User(AbstractUser):
 
     tipo_cedula = models.CharField(max_length=1, choices=CEDULA_CHOICES,blank=True)
     numero_cedula = models.CharField(max_length=12, blank=True)
+    fecha_nacimiento = models.DateField(blank=True, null=True)
