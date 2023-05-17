@@ -164,3 +164,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.User'
+
+#CONFIGURACION ENVIO DE EMAILS
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'moartravel2@gmail.com'
+EMAIL_HOST_PASSWORD = 'Admin123MOAR'
+EMAIL_USE_TLS = True

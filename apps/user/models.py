@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractUser, Group, Permission
-
+from uuid import uuid4
+import uuid
 class User(AbstractUser):
     # ... otros campos y métodos ...
 
@@ -9,6 +10,7 @@ class User(AbstractUser):
     user_permissions = models.ManyToManyField(Permission, related_name='authentication_user_permissions')
     direccion = models.CharField(max_length=255, blank=True)
     telefono = models.CharField(max_length=20, blank=True)
+    token = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     CEDULA_CHOICES = (
         ('', 'Tipo de cedula'),
         ('1', 'Cedula de Ciudadania'),
